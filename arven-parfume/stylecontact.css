@@ -1,0 +1,111 @@
+/* ===== Reset & Variabel ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --text:#f4f4f4; --muted:#cfcfcf; --bg:#111;
+  --card:#1f1f1f; --gold:#a38b5d; --gold-2:#d6c199; --accent:#a37627;
+  --danger:#ff5d5d; --success:#38c172;
+  --shadow-strong:0 30px 80px rgba(0,0,0,.55),0 12px 28px rgba(0,0,0,.35);
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;color:var(--text);
+  background:linear-gradient(180deg,#0f0f0f 0%, #151515 45%, #0b0b0b 100%);
+  font-family:Arial, Helvetica, sans-serif;line-height:1.6;
+}
+
+/* ====== Header - SAMA PERSIS DENGAN INDEX.HTML ====== */
+header{
+  position:fixed;inset:0 0 auto 0;z-index:1000;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 46px;background:rgba(0,0,0,.35);backdrop-filter:blur(0px);
+  transition:all .3s;border-bottom:1px solid rgba(255,255,255,.06)
+}
+header.scrolled{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.logo a{color:var(--text);text-decoration:none;font-size:24px;font-weight:800}
+.header-right-nav{display:flex;gap:28px;align-items:center}
+.header-right-nav nav ul{display:flex;list-style:none;gap:26px}
+.header-right-nav nav a{
+  position:relative;color:var(--text);text-decoration:none;text-transform:uppercase;
+  font-size:13px;letter-spacing:1.2px;padding:6px 0
+}
+.header-right-nav nav a::after{
+  content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:width .25s
+}
+.header-right-nav nav a:hover{color:#ddd}
+.header-right-nav nav a:hover::after{width:100%}
+.header-right-nav nav a.active::after{width:100%}
+.header-icons{display:flex;gap:16px}
+.header-icons .icon{font-size:18px;cursor:pointer;transition:transform .2s,color .2s}
+.header-icons .icon:hover{transform:translateY(-2px);color:var(--gold)}
+
+/* ===== Page Title ===== */
+.content-section{
+  padding:110px 18px 64px;display:flex;flex-direction:column;align-items:center
+}
+.content-section h1{font-size:38px;letter-spacing:1.2px;margin-bottom:8px;text-align:center}
+.content-section>p{color:#cfcfcf;margin-bottom:18px;text-align:center}
+
+/* ===== Alert ===== */
+.alert{
+  width:min(960px,92vw);margin:8px auto 18px;border-radius:8px;padding:12px 14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.35);font-weight:600;text-align:center
+}
+.alert.success{background:#e6fbef;color:#145a32;border:1px solid #bdf4d4}
+.alert.error{background:#ffe9e9;color:#7a1d1d;border:1px solid #ffc6c6}
+
+/* ===== Contact Card ===== */
+.contact-container{
+  width:min(720px,92vw);background:rgba(28,28,28,.76);
+  border:1px solid rgba(255,255,255,.06);border-radius:16px;
+  padding:34px 26px;box-shadow:var(--shadow-strong);backdrop-filter:saturate(1.1) blur(8px);
+}
+.form-title{font-size:18px;letter-spacing:.6px;margin-bottom:18px;color:#e7e7e7}
+
+/* ===== Field ===== */
+.form-group{margin-bottom:18px}
+.form-group label{display:block;margin-bottom:6px;font-weight:800;font-size:13px;color:#eaeaea}
+
+input, textarea{
+  width:100%;padding:14px 14px;border-radius:12px;border:1px solid #3a3a3a;
+  background:#232323;color:#fff;font-size:15px;outline:none;
+  transition:border-color .2s, box-shadow .2s, background .2s
+}
+textarea{min-height:140px;resize:vertical}
+input::placeholder, textarea::placeholder{color:#9b9b9b}
+input:focus, textarea:focus{
+  border-color:#d6c199;
+  box-shadow:0 0 0 4px rgba(214,193,153,.12), 0 10px 26px rgba(0,0,0,.35);
+  background:#262626;
+}
+
+/* invalid (merah) & valid (hijau) */
+.is-invalid{border-color:var(--danger)!important;box-shadow:0 0 0 4px rgba(255,93,93,.18)!important;background:#2a2424!important}
+.is-valid{border-color:var(--success)!important;box-shadow:0 0 0 4px rgba(56,193,114,.18)!important;background:#262a26!important}
+
+/* pesan bawah field */
+.field-error{display:block;margin-top:6px;font-size:12px;color:#ff8a8a;font-weight:700}
+.field-ok{display:block;margin-top:6px;font-size:12px;color:#6ee7a1;font-weight:800}
+.field-error[hidden], .field-ok[hidden]{display:none!important}
+
+/* Button */
+.submit-btn{
+  width:100%;padding:14px 20px;border-radius:12px;border:1.5px solid #d6c199;
+  background:linear-gradient(180deg,#b9975a,#8e6f3a);color:#0f0f0f;
+  font-weight:900;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 14px 30px rgba(163,139,93,.28);transition:transform .15s, filter .2s
+}
+.submit-btn:hover{filter:brightness(1.05)}
+.submit-btn:active{transform:translateY(1px)}
+
+/* Ripple effect */
+.ripple{position:relative;overflow:hidden}
+.r{position:absolute;width:160px;height:160px;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);animation:rip .6s ease forwards;background:rgba(255,255,255,.25)}
+@keyframes rip{from{opacity:.8;scale:.2}to{opacity:0;scale:1}}
+
+/* Mobile */
+@media (max-width:640px){
+  header{padding:12px 18px}
+  .content-section h1{font-size:32px}
+  .contact-container{padding:26px 18px}
+}

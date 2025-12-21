@@ -1,0 +1,89 @@
+/* CSS untuk Halaman Tentang Kami (about.html) - FIXED */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+:root{--text-light:#f4f4f4;--background-dark:#161616;--accent-color: #a38b5d;--gold:#a38b5d;--gold-2:#d6c199}
+html{scroll-behavior:smooth}
+body{background-color:var(--background-dark);color:var(--text-light);line-height:1.8;min-height:100vh;display:flex;flex-direction:column}
+
+/* ====== Header - SAMA PERSIS DENGAN INDEX.HTML ====== */
+header{
+    position:fixed;inset:0 0 auto 0;z-index:1000;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 46px;background:rgba(0,0,0,.35);backdrop-filter:blur(0px);
+    transition:all .3s;border-bottom:1px solid rgba(255,255,255,.06)
+}
+header.scrolled{background:rgba(0,0,0,.55);backdrop-filter:blur(6px)}
+.logo a{color:var(--text-light);text-decoration:none;font-size:24px;font-weight:800}
+.header-right-nav{display:flex;gap:28px;align-items:center}
+.header-right-nav nav ul{display:flex;list-style:none;gap:26px}
+.header-right-nav nav a{
+    position:relative;color:var(--text-light);text-decoration:none;text-transform:uppercase;
+    font-size:13px;letter-spacing:1.2px;padding:6px 0
+}
+.header-right-nav nav a::after{
+    content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;
+    background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:width .25s
+}
+.header-right-nav nav a:hover{color:#ddd}
+.header-right-nav nav a:hover::after{width:100%}
+.header-icons{display:flex;gap:16px}
+.header-icons .icon{font-size:18px;cursor:pointer;transition:transform .2s,color .2s}
+.header-icons .icon:hover{transform:translateY(-2px);color:var(--gold)}
+
+/* Konten Halaman Tentang Kami */
+.about-content {
+    padding: 100px 100px 50px;max-width: 900px;margin: 0 auto;text-align: left;
+}
+.about-content h1 {
+    font-size: 32px;margin-bottom: 30px;font-weight: bold;color: var(--text-light);
+}
+.about-content p {
+    font-size: 15px;margin-bottom: 25px;color: #ccc;line-height: 1.8;
+}
+.contact-info {
+    margin-top: 50px;font-size: 15px;color: #ddd;
+}
+.contact-info strong {
+    display: block;margin-bottom: 5px;font-weight: bold;color: var(--accent-color);
+}
+.contact-info address, .contact-info p {
+    margin: 0;line-height: 1.5;
+}
+
+/* Bagian Kontak Tambahan (Scrollable) */
+.contact-section {
+    background-color: #222;color: var(--text-light);padding: 60px 50px;
+    text-align: center;border-top: 1px solid #333;
+}
+.contact-section h2 {
+    font-size: 24px;margin-bottom: 30px;color: var(--accent-color);
+}
+.contact-grid {
+    display: flex;justify-content: center;gap: 50px;flex-wrap: wrap;
+    max-width: 1000px;margin: 0 auto;
+}
+.contact-item {
+    flex-basis: 250px;text-align: center;padding: 15px;
+}
+.contact-item i {
+    font-size: 30px;color: var(--accent-color);margin-bottom: 10px;
+}
+.contact-item p {
+    margin: 5px 0;font-size: 14px;color: #ccc;
+}
+.social-icons a {
+    color: var(--text-light);font-size: 24px;margin: 0 10px;transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 18px;
+    }
+    
+    .about-content {
+        padding: 100px 30px 40px;
+    }
+}
