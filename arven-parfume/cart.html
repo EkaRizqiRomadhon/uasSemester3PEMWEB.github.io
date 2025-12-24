@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang Belanja | Arven Parfume</title>
+    <link rel="stylesheet" href="stylecart.css" />
+    <link rel="stylesheet" href="auth_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header id="siteHeader">
+      <div class="logo"><a href="index.html">ARVEN PARFUME</a></div>
+      <div class="header-right-nav">
+        <nav>
+          <ul>
+            <li><a href="index.html">BERANDA</a></li>
+            <li><a href="about.html">TENTANG KAMI</a></li>
+            <li><a href="koleksi.html">KOLEKSI</a></li>
+            <li><a href="contact.html">KONTAK</a></li>
+
+            <li>
+              <a
+                href="cart.html"
+                class="icon"
+                title="Keranjang"
+                style="
+                  position: relative;
+                  text-decoration: none;
+                  color: inherit;
+                  display: flex;
+                  align-items: center;
+                "
+              >
+                <i class="fas fa-shopping-cart"></i>
+                <span
+                  id="cartBadge"
+                  class="cart-badge"
+                  style="
+                    display: none;
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background: #a38b5d; /* Menggunakan Hex kode emas langsung jika var(--gold) tidak terbaca di css about */
+                    color: #000;
+                    border-radius: 50%;
+                    font-size: 10px;
+                    padding: 0;
+                    width: 16px;
+                    height: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+                  "
+                  >0</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-icons"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="page-title">Keranjang Belanja</h1>
+      <div class="sub-title">
+        Review item pilihan eksklusif Anda sebelum checkout.
+      </div>
+
+      <div class="cart-wrap">
+        <section class="cart-list" id="cartList">
+          <div class="empty-state">Memuat keranjang...</div>
+        </section>
+
+        <aside class="cart-summary" id="cartSummary">
+          <h2>Ringkasan Pesanan</h2>
+
+          <div class="summary-row">
+            <div>Subtotal</div>
+            <div id="subtotalText">Rp 0</div>
+          </div>
+
+          <div class="summary-row">
+            <div>Pajak & Layanan</div>
+            <div id="taxText">Rp 0</div>
+          </div>
+
+          <div class="summary-row total">
+            <div>Total Estimasi</div>
+            <div id="totalText">Rp 0</div>
+          </div>
+
+          <button id="checkoutBtn" class="btn btn-primary">
+            Secure Checkout
+          </button>
+          <button id="clearBtn" class="btn btn-ghost">
+            Kosongkan Keranjang
+          </button>
+        </aside>
+      </div>
+    </main>
+
+    <script src="cart.js"></script>
+  </body>
+</html>

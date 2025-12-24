@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dior Katalog</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header id="siteHeader">
+      <div class="logo"><a href="index.html">ARVEN PARFUME</a></div>
+      <div class="header-right-nav">
+        <nav>
+          <ul>
+            <li><a href="index.html">BERANDA</a></li>
+            <li><a href="about.html">TENTANG KAMI</a></li>
+            <li><a href="koleksi.html">KOLEKSI</a></li>
+            <li><a href="contact.html">KONTAK</a></li>
+
+            <li>
+              <a
+                href="cart.html"
+                class="icon"
+                title="Keranjang"
+                style="
+                  position: relative;
+                  text-decoration: none;
+                  color: inherit;
+                  display: flex;
+                  align-items: center;
+                "
+              >
+                <i class="fas fa-shopping-cart"></i>
+                <span
+                  id="cartBadge"
+                  class="cart-badge"
+                  style="
+                    display: none;
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background: #a38b5d; /* Menggunakan Hex kode emas langsung jika var(--gold) tidak terbaca di css about */
+                    color: #000;
+                    border-radius: 50%;
+                    font-size: 10px;
+                    padding: 0;
+                    width: 16px;
+                    height: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+                  "
+                  >0</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-icons"></div>
+      </div>
+    </header>
+
+    <section class="page-container">
+      <h1>Dior<br />Parfume Collection</h1>
+
+      <div class="perfume-grid">
+        <!-- Dior Sauvage EDT -->
+        <div class="perfume-card">
+          <img src="img/dior_sauvage_edt.jpg" alt="Dior Sauvage EDT" />
+          <h3>Dior Sauvage EDT</h3>
+          <p class="price">Rp 2.200.000</p>
+          <p>Spicy fresh maskulin dengan ketahanan kuat.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="dior-sauvage-edt"
+            data-name="Dior Sauvage EDT"
+            data-price="2200000"
+            data-img="img/dior_sauvage_edt.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <!-- Dior Sauvage EDP -->
+        <div class="perfume-card">
+          <img src="img/dior_sauvage_edp.jpg" alt="Dior Sauvage EDP" />
+          <h3>Dior Sauvage EDP</h3>
+          <p class="price">Rp 2.400.000</p>
+          <p>Lebih deep, smooth, dan elegan.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="dior-sauvage-edp"
+            data-name="Dior Sauvage EDP"
+            data-price="2400000"
+            data-img="img/dior_sauvage_edp.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <!-- Dior Homme Intense -->
+        <div class="perfume-card">
+          <img src="img/dior_homme_intense.jpg" alt="Dior Homme Intense" />
+          <h3>Dior Homme Intense</h3>
+          <p class="price">Rp 1.950.000</p>
+          <p>Iris powdery yang elegan dan gentleman.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="dior-homme-intense"
+            data-name="Dior Homme Intense"
+            data-price="1950000"
+            data-img="img/dior_homme_intense.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <!-- Dior Fahrenheit -->
+        <div class="perfume-card">
+          <img src="img/dior_fahrenheit.jpg" alt="Dior Fahrenheit" />
+          <h3>Dior Fahrenheit</h3>
+          <p class="price">Rp 1.975.000</p>
+          <p>Leather klasik dengan karakter kuat.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="dior-fahrenheit"
+            data-name="Dior Fahrenheit"
+            data-price="1975000"
+            data-img="img/dior_fahrenheit.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <!-- Dior Homme -->
+        <div class="perfume-card">
+          <img src="img/dior_homme.jpg" alt="Dior Homme" />
+          <h3>Dior Homme</h3>
+          <p class="price">Rp 2.869.000</p>
+          <p>Modern clean woody yang versatile.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="dior-homme"
+            data-name="Dior Homme"
+            data-price="2869000"
+            data-img="img/dior_homme.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <!-- Dior Homme Sport -->
+        <div class="perfume-card">
+          <img src="img/dior_homme_sport.jpg" alt="Dior Homme Sport" />
+          <h3>Dior Homme Sport</h3>
+          <p class="price">Rp 2.750.000</p>
+          <p>Fresh citrus energik untuk outdoor.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="dior-homme-sport"
+            data-name="Dior Homme Sport"
+            data-price="2750000"
+            data-img="img/dior_homme_sport.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function readCart() {
+        return JSON.parse(localStorage.getItem("arven_cart_v1")) || [];
+      }
+
+      function writeCart(cart) {
+        localStorage.setItem("arven_cart_v1", JSON.stringify(cart));
+        updateBadge();
+      }
+
+      function getCartCount() {
+        return readCart().reduce((sum, item) => sum + item.qty, 0);
+      }
+
+      function updateBadge() {
+        const badge = document.getElementById("cartBadge");
+        const count = getCartCount();
+        if (count > 0) {
+          badge.style.display = "inline-flex";
+          badge.textContent = count;
+        } else {
+          badge.style.display = "none";
+        }
+      }
+
+      function addToCart(item) {
+        const cart = readCart();
+        const found = cart.find((p) => p.id === item.id);
+
+        if (found) {
+          found.qty++;
+        } else {
+          cart.push({ ...item, qty: 1 });
+        }
+
+        writeCart(cart);
+        alert(item.name + " berhasil ditambahkan ke keranjang!");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateBadge();
+
+        document.querySelectorAll(".add-to-cart").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            addToCart({
+              id: btn.dataset.id,
+              name: btn.dataset.name,
+              price: Number(btn.dataset.price),
+              image: btn.dataset.img,
+            });
+          });
+        });
+      });
+    </script>
+    <script src="navbar.js"></script>
+  </body>
+</html>

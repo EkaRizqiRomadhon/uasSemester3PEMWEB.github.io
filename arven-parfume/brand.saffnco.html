@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Saff & Co Katalog</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header id="siteHeader">
+      <div class="logo"><a href="index.html">ARVEN PARFUME</a></div>
+      <div class="header-right-nav">
+        <nav>
+          <ul>
+            <li><a href="index.html">BERANDA</a></li>
+            <li><a href="about.html">TENTANG KAMI</a></li>
+            <li><a href="koleksi.html">KOLEKSI</a></li>
+            <li><a href="contact.html">KONTAK</a></li>
+
+            <li>
+              <a
+                href="cart.html"
+                class="icon"
+                title="Keranjang"
+                style="
+                  position: relative;
+                  text-decoration: none;
+                  color: inherit;
+                  display: flex;
+                  align-items: center;
+                "
+              >
+                <i class="fas fa-shopping-cart"></i>
+                <span
+                  id="cartBadge"
+                  class="cart-badge"
+                  style="
+                    display: none;
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background: #a38b5d;
+                    color: #000;
+                    border-radius: 50%;
+                    font-size: 10px;
+                    padding: 0;
+                    width: 16px;
+                    height: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+                  "
+                  >0</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-icons"></div>
+      </div>
+    </header>
+
+    <section class="page-container">
+      <h1>Saff & Co<br />Parfume Collection</h1>
+
+      <div class="perfume-grid">
+        <div class="perfume-card">
+          <img src="img/saffcascavel.jpg" alt="Saff & Co Cascavel" />
+          <h3>Cascavel</h3>
+          <p class="price">Rp 289.000</p>
+          <p>Parfum Middle Eastern, bold dan mewah.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="saff-cascavel"
+            data-name="Saff & Co Cascavel"
+            data-price="289000"
+            data-img="img/saffcascavel.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <div class="perfume-card">
+          <img src="img/saffloui.png" alt="Saff & Co Loui" />
+          <h3>Loui</h3>
+          <p class="price">Rp 150.000</p>
+          <p>Floral manis dan feminin.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="saff-loui"
+            data-name="Saff & Co Loui"
+            data-price="150000"
+            data-img="img/saffloui.png"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <div class="perfume-card">
+          <img src="img/saffsotb.jpg" alt="Saff & Co SOTB" />
+          <h3>SOTB</h3>
+          <p class="price">Rp 300.000</p>
+          <p>Fresh marine maskulin.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="saff-sotb"
+            data-name="Saff & Co SOTB"
+            data-price="300000"
+            data-img="img/saffsotb.jpg"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+
+        <div class="perfume-card">
+          <img src="img/saffcoco.png" alt="Saff & Co COCO" />
+          <h3>COCO</h3>
+          <p class="price">Rp 300.000</p>
+          <p>Summer fresh dengan vibe pantai.</p>
+
+          <button
+            class="add-to-cart"
+            data-id="saff-coco"
+            data-name="Saff & Co COCO"
+            data-price="300000"
+            data-img="img/saffcoco.png"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function readCart() {
+        return JSON.parse(localStorage.getItem("arven_cart_v1")) || [];
+      }
+
+      function writeCart(cart) {
+        localStorage.setItem("arven_cart_v1", JSON.stringify(cart));
+        updateBadge();
+      }
+
+      function getCartCount() {
+        return readCart().reduce((sum, item) => sum + item.qty, 0);
+      }
+
+      function updateBadge() {
+        const badge = document.getElementById("cartBadge");
+        const count = getCartCount();
+        if (count > 0) {
+          badge.style.display = "inline-flex";
+          badge.textContent = count;
+        } else {
+          badge.style.display = "none";
+        }
+      }
+
+      function addToCart(item) {
+        const cart = readCart();
+        const found = cart.find((p) => p.id === item.id);
+
+        if (found) {
+          found.qty++;
+        } else {
+          cart.push({ ...item, qty: 1 });
+        }
+
+        writeCart(cart);
+        alert(item.name + " berhasil ditambahkan ke keranjang!");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateBadge();
+
+        document.querySelectorAll(".add-to-cart").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            addToCart({
+              id: btn.dataset.id,
+              name: btn.dataset.name,
+              price: Number(btn.dataset.price),
+              image: btn.dataset.img,
+            });
+          });
+        });
+      });
+    </script>
+    <script src="navbar.js"></script>
+  </body>
+</html>
